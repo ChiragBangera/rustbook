@@ -1,0 +1,9 @@
+/Users/chiragbangera/Developer/rust_meh/ch_3/functions/target/debug/deps/functions-30ad3ab73a842226.d: src/main.rs Cargo.toml
+
+/Users/chiragbangera/Developer/rust_meh/ch_3/functions/target/debug/deps/libfunctions-30ad3ab73a842226.rmeta: src/main.rs Cargo.toml
+
+src/main.rs:
+Cargo.toml:
+
+# env-dep:CLIPPY_ARGS=--no-deps__CLIPPY_HACKERY__
+# env-dep:CLIPPY_CONF_DIR
