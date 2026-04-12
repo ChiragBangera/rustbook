@@ -3,41 +3,36 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    println!("Please guess a number between 1 and 100");
+    println!("Lets play a guessing game!!!");
 
-    let secret_key = rand::rng().random_range(1..=100);
+    let secret_number = rand::rng().random_range(1..=100);
+    println!("The secret number is {secret_number}");
 
     loop {
-        println!("Please input your guess here");
+        println!("Please enter your guess.");
 
+        //declaring a mutable vairable lo store the guess
         let mut guess = String::new();
 
         io::stdin()
             .read_line(&mut guess)
-            .expect("Failed to read input");
+            .expect("Failed to read the input");
 
-        let guess = guess.trim();
-
-        if guess.eq_ignore_ascii_case("quit") || guess.eq_ignore_ascii_case("exit") {
-            println!("Goodbye 👋");
-            break;
-        }
-
-        let guess: u32 = match guess.parse() {
-            Ok(num) => num,
+        let guess: u32 = match guess.trim().parse() {
+            Ok(x) => x,
             Err(_) => {
-                println!("Not a valid number, try again");
+                println!("Please input intergers only");
                 continue;
             }
         };
 
-        println!("You guessed: {guess}");
+        println!("You guessed {guess}");
 
-        match guess.cmp(&secret_key) {
-            Ordering::Less => println!("Too low!"),
-            Ordering::Greater => println!("Too big!"),
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too Small"),
+            Ordering::Greater => println!("Too Big!"),
             Ordering::Equal => {
-                println!("You win!!!!");
+                println!("You Win!!");
                 break;
             }
         }
